@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this.base</title>
+    <link rel="icon" href="fav.png" />
+  </head>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 0 calc(20px - (100vw - 100%)) 0 0;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 40px;
+      padding: 10px;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      border-bottom: 0.5px solid #fff;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: row;
+    }
+    .nav__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: auto;
+      border: 3px solid #000;
+      font-size: 20px;
+      height: 40px;
+      cursor: pointer;
+    }
+    .nav__item:hover,
+    .nav__item--active {
+      background-color: #000;
+      color: #fff;
+    }
+    .modules {
+      max-width: 700px;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+    .module {
+      display: flex;
+      flex-direction: column;
+      z-index: 10;
+    }
+    .module__item {
+      border-top: 1px solid #000;
+    }
+    .module__title {
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #fff;
+      height: 40px;
+      background-color: #000;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      letter-spacing: 2px;
+      font-weight: bold;
+      padding-left: 40px;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+    .module__title:hover {
+      color: #efd81d;
+    }
+    .module__text {
+      font-size: 20px;
+      padding: 15px;
+      display: none;
+    }
+    .module__item--sobes .module__title {
+      background-color: #efd81d;
+      color: #000;
+    }
+    .module__item--sobes:hover .module__title {
+      color: #fff;
+    }
+    .module__item--active .module__text {
+      display: block;
+    }
+    .module__censored {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+    }
+    .module__mark {
+      position: absolute;
+      top: 25px;
+      right: 0;
+      display: none;
+      background-color: yellow;
+      padding: 10px;
+      font-style: normal;
+      font-size: 15px;
+      text-align: justify;
+      width: 220px;
+    }
+    .module__censored:hover .module__mark {
+      display: block;
+    }
+    .module__thought {
+      margin-bottom: 20px;
+    }
+  </style>
+  <body>
+    <header>
+      <h1>ЭТО БАЗА</h1>
+      <nav class="nav">
+        <div class="nav__item nav__item--active">Первый модуль</div>
+        <div class="nav__item">Второй модуль</div>
+        <div class="nav__item">Третий модуль</div>
+      </nav>
+    </header>
+    <div class="modules">
+      <div class="module">
+        <div class="module__item">
+          <div class="module__title">Переменные</div>
+          <div class="module__text">
+            <div class="module__thought">
+              <u
+                >Переменная – это
+                <s class="module__censored"
+                  >привязка<i class="module__mark"
+                    >По мнению М.Хавербеке в книге "Выразительный JS"</i
+                  ></s
+                >
+                это именованные контейнеры для хранения данных.</u
+              >
+              Для создания используют ключевое слово const(для неизменяемых
+              значений, без возможности переопределения, кроме мутации у
+              объектов), let(для всего остального),
+              <s class="module__censored"
+                >var<i class="module__mark"
+                  >Устаревший вариант, для «var» не существует блочной области
+                  видимости, «var» допускает повторное объявление, объявления
+                  переменных «всплывают», но присваивания значений – нет.</i
+                ></s
+              >
+            </div>
+            <div class="module__thought">
+              В JavaScript есть два ограничения, касающиеся имён переменных: Имя
+              переменной должно содержать только буквы, цифры или символы $ и _.
+              Первый символ не должен быть цифрой.
+            </div>
+            <div class="module__thought">
+              Существует список зарезервированных слов, которые нельзя
+              использовать в качестве имён переменных, потому что они
+              используются самим языком.
+            </div>
+            <div class="module__thought">
+              Для обьявления имен переменных используем camelCase(fullName), для
+              констант screaming_snake_case(BASE_URL)
+            </div>
+          </div>
+        </div>
+        <div class="module__item module__item--sobes">
+          <div class="module__title">Типы данных</div>
+          <div class="module__text">
+            <div class="module__thought">
+              JavaScript является динамически типизированным языком, это значит,
+              что типы данных есть, но переменные не привязаны ни к одному из
+              них.
+            </div>
+            <div class="module__thought">
+              Стандарт ECMAScript определяет 8 типов данных.<br />
+              6 примитивных типов:
+              <ul>
+                <li>Undefined (Неопределённый тип)</li>
+                <li>Boolean (Булев, Логический тип)</li>
+                <li>Number (Число)</li>
+                <li>String (Строка)</li>
+                <li>BigInt (Большое Число)</li>
+                <li>Symbol (в ECMAScript 6)</li>
+              </ul>
+              и 2 других
+              <ul>
+                <li>
+                  Null (<s class="module__censored"
+                    >Null примитив!<i class="module__mark"
+                      >typeof null возврат "object", так и живём</i
+                    ></s
+                  >)
+                </li>
+                <li>Object (Объект)</li>
+              </ul>
+            </div>
+
+            <div class="module__thought">
+              Все типы данных в JavaScript, кроме объектов, являются
+              иммутабельными (значения не могут быть модифицированы, а только
+              перезаписаны новым полным значением). Например, в отличии от C,
+              где строку можно посимвольно корректировать, в JavaScript строки
+              пересоздаются только полностью. Значения таких типов называются
+              «примитивными значениями».
+            </div>
+
+            <div class="module__thought">
+              <b>Число</b><br />
+              Тип данных «число» (number) содержит числа с плавающей точкой в
+              диапазоне от -(253 − 1) до 253 − 1, а также специальные значения
+              Infinity, -Infinity и NaN.
+            </div>
+
+            <div class="module__thought">
+              <b>Строка</b><br />
+              Любые текстовые данные в JavaScript — это строки (англ. string).
+              Строки представляют собой последовательность символов. Созданная
+              строка является иммутабельной (immutable) и не может быть
+              изменена.
+            </div>
+
+            <div class="module__thought">
+              <b>Булев тип</b><br />
+              Логический или булев тип boolean может принимать лишь истинное
+              (true) и ложное (false) значения
+            </div>
+
+            <div class="module__thought">
+              <b>undefined</b><br />
+              Undefined — это примитивный тип данных, состоящий из одного
+              значения undefined. Оно используется, чтобы обозначить неизвестное
+              или неопределённое значение.
+            </div>
+
+            <div class="module__thought">
+              <b>null</b><br />
+              Null — это примитивный тип данных, который состоит из
+              единственного значения null. Значение null используют, когда нужно
+              обозначить намеренное отсутствие значения.
+            </div>
+
+            <div class="module__thought">
+              <b>BigInt</b><br />
+              Тип большого целого BigInt — примитивный тип, который представляет
+              целые числа больше 253-1. Эти числа уже не помещаются в
+              стандартный примитив «число».
+            </div>
+
+            <div class="module__thought">
+              <b>Symbol</b><br />
+              Символ (Symbol) — примитивный тип, значения которого создаются с
+              помощью вызова функции Symbol. Каждый созданный символ уникален.
+              Символы могут использоваться в качестве имён свойств в объектах.
+              Символьные свойства могут быть прочитаны только при прямом
+              обращении и не видны при обычных операциях.
+            </div>
+
+            <div class="module__thought">
+              <b>Объект</b><br />
+              Объект (object) — это набор свойств. Каждое свойство состоит из
+              названия и значения. Название может быть строкой или символом, а
+              значение может быть любым.
+            </div>
+          </div>
+        </div>
+        <div class="module__item module__item--sobes">
+          <div class="module__title">Преобразование типов</div>
+          <div class="module__text">
+            <div class="module__thought">
+              Приведение (или преобразование) типов — это процесс конвертации
+              значения из одного типа в другой. В JavaScript типы можно
+              преобразовывать явно и неявно. Неявное преобразование происходит,
+              когда мы заставляем JavaScript работать со значениями разных
+              типов. Вызываем функцию, чтобы получить конкретный тип — это явное
+              преобразование
+            </div>
+            <div class="module__thought">
+              Сравнение бывает строгим и нестрогим. При строгом сравнении (===)
+              интерпретатор учитывает типы сравниваемых значений. Когда же мы
+              сравниваем значения нестрого между собой с помощью ==, JavaScript
+              приводит типы самостоятельно
+            </div>
+            <div class="module__thought">
+              Существует 3 наиболее широко используемых преобразования:
+              строковое, численное и логическое. Строковое – Происходит, когда
+              нам нужно что-то вывести. Может быть вызвано с помощью
+              String(value). Для примитивных значений работает очевидным
+              образом. Численное – Происходит в математических операциях. Может
+              быть вызвано с помощью Number(value). Логическое – Происходит в
+              логических операциях. Может быть вызвано с помощью Boolean(value).
+            </div>
+          </div>
+        </div>
+        <div class="module__item">
+          <div class="module__title">Базовые операторы</div>
+          <div class="module__text">
+            <div class="module__thought">
+              В общем все математические операторы используются в языке в разных
+              комбинациях для достижения определённого эффекта
+            </div>
+            <div class="module__thought">
+              Операнд – то, к чему применяется оператор. Например, в умножении 5
+              * 2 есть два операнда: левый операнд равен 5, а правый операнд
+              равен 2. Иногда их называют «аргументами» вместо «операндов».
+            </div>
+          </div>
+        </div>
+        <div class="module__item">
+          <div class="module__title">Операторы сравнения</div>
+          <div class="module__text">
+            <div class="module__thought">
+              <ul>
+                <li>
+                  Операторы сравнения возвращают значения логического типа
+                </li>
+                <li>
+                  Строки сравниваются посимвольно в лексикографическом порядке.
+                  Значения разных типов при сравнении приводятся к числу
+                </li>
+                <li>
+                  Исключением является сравнение с помощью операторов строгого
+                  равенства/неравенства
+                </li>
+                <li>
+                  Значения null и undefined равны == друг другу и не равны
+                  любому другому значению. Будьте осторожны при использовании
+                  операторов сравнений вроде > и < с переменными, которые могут
+                  принимать значения null/undefined. Хорошей идеей будет сделать
+                  отдельную проверку на null/undefined.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="module__item">
+          <div class="module__title">Условные операторы</div>
+          <div class="module__text">
+            <div class="module__thought">
+              Иногда нам нужно выполнить различные действия в зависимости от
+              условий. Для этого мы можем использовать инструкцию if и условный
+              оператор ?, который также называют оператором «вопросительный
+              знак».
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const btnsNav = document.querySelectorAll(".nav__item");
+      const nav = document.querySelector(".nav");
+      nav.addEventListener("click", function (e) {
+        if (!e.target.classList.contains("nav__item--active")) {
+          for (let i = 0; i < btnsNav.length; i++) {
+            btnsNav[i].classList.remove("nav__item--active");
+          }
+          e.target.classList.add("nav__item--active");
+        }
+      });
+
+      const modItem = document.querySelector(".module");
+      modItem.addEventListener("click", function (e) {
+        e.target.parentElement.classList.toggle("module__item--active");
+      });
+    </script>
+  </body>
+</html>
