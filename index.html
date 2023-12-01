@@ -49,7 +49,7 @@
       margin-top: 50px;
     }
     .module {
-      display: flex;
+      display: none;
       flex-direction: column;
       z-index: 10;
     }
@@ -119,13 +119,16 @@
       font-size: 15px;
       margin-top: 20px;
     }
+    .module--active {
+      display: flex;
+    }
   </style>
   <body>
     <header>
       <h1>ЭТО БАЗА</h1>
       <nav class="nav">
-        <div class="nav__item nav__item--active">Первый модуль</div>
-        <div class="nav__item">Второй модуль</div>
+        <div class="nav__item">Первый модуль</div>
+        <div class="nav__item nav__item--active">Второй модуль</div>
         <div class="nav__item">Третий модуль</div>
       </nav>
     </header>
@@ -430,16 +433,158 @@
           </div>
         </div>
       </div>
+      <div class="module module--active">
+        <div class="module__item">
+          <div class="module__title">Объект</div>
+          <div class="module__text">
+            <div class="module__thought">
+              Коллекция свойств, состоящая из пар ключ-значение
+            </div>
+          </div>
+        </div>
+        <div class="module__item">
+          <div class="module__title">Символ</div>
+          <div class="module__text">
+            <div class="module__thought">
+              Уникальный идентификатор, используется как правило для создания
+              скрытых свойств объектов
+            </div>
+          </div>
+        </div>
+        <div class="module__item module__item--sobes">
+          <div class="module__title">THIS</div>
+          <div class="module__text">
+            <div class="module__thought">
+              Как правило в методе/функции this ссылается на объект актуальной
+              области видимости
+            </div>
+          </div>
+        </div>
+        <div class="module__item module__item--sobes">
+          <div class="module__title">NEW</div>
+          <div class="module__text">
+            <div class="module__thought">
+              new используется для выполнения функции конструктора
+            </div>
+          </div>
+        </div>
+        <div class="module__item">
+          <div class="module__title">Массив</div>
+          <div class="module__text">
+            <div class="module__thought">
+              Массив - это упорядоченная по индексу коллекция значений
+            </div>
+          </div>
+        </div>
+        <div class="module__item">
+          <div class="module__title">Методы массивов</div>
+          <div class="module__text">
+            <div class="module__thought">
+              Существует около 33 методов для работы с массивами. Все они как
+              правило используют функцию колбэк, мутируют, либо не мутируют
+              массив, возвращают значение либо массив. top 5 - foreach, filter,
+              sort, reduce, map
+            </div>
+          </div>
+        </div>
+        <div class="module__item">
+          <div class="module__title">Методы массивов</div>
+          <div class="module__text">
+            <div class="module__thought">
+              Существует около 33 методов для работы с массивами. Все они как
+              правило используют функцию колбэк, мутируют, либо не мутируют
+              массив, возвращают значение либо массив. top 5 - foreach, filter,
+              sort, reduce, map
+            </div>
+          </div>
+        </div>
+        <div class="module__item">
+          <div class="module__title">Map и Set</div>
+          <div class="module__text">
+            <div class="module__thought">
+              Map — это коллекция пар ключ/значение, которая может использовать
+              любой тип данных в качестве ключа и поддерживает порядок своих
+              записей<br />
+              Set — это множество уникальных значений<br />
+              Коллекции Map и Set имеют свои, отличные от объектов и массивов,
+              методы и свойства
+            </div>
+          </div>
+        </div>
+        <div class="module__item">
+          <div class="module__title">Map и Set</div>
+          <div class="module__text">
+            <div class="module__thought">
+              Map — это коллекция пар ключ/значение, которая может использовать
+              любой тип данных в качестве ключа и поддерживает порядок своих
+              записей<br />
+              Set — это множество уникальных значений<br />
+              Коллекции Map и Set имеют свои, отличные от объектов и массивов,
+              методы и свойства
+            </div>
+          </div>
+        </div>
+        <div class="module__item">
+          <div class="module__title">Методы объектов</div>
+          <div class="module__text">
+            <div class="module__thought">
+              У объектов есть методы(меньше, чем у массивов), которые помогают
+              модифицировать и итерировать их, например:<br />
+              <code
+                >Object.create() - позволяет создавать новые объекты<br /><br />
+                Object.keys() - создает массив ключей объекта<br /><br />
+                Object.values() - создает массив значений объекта<br /><br />
+                Object.entries() - создает вложенный массив пар «ключ-значение»
+                объекта<br /><br />
+                Object.assign() - копирует значения из одного объекта в
+                другой<br /><br />
+                Object.freeze() - предотвращает модификацию свойств и значений
+                объекта<br /><br />
+                Object.seal() - предотвращает добавление новых свойств объекта,
+                но позволяет изменять существующие свойства<br /><br />
+                Object.getPrototypeOf() - используется для получения внутреннего
+                скрытого [[Prototype]] объекта
+              </code>
+            </div>
+          </div>
+        </div>
+        <div class="module__item">
+          <div class="module__title">Деструктуризация</div>
+          <div class="module__text">
+            <div class="module__thought">
+              Деструктуризация – синтаксическая возможность разложить элементы
+              объекта(в широком мысле) в отдельные значения/переменные
+            </div>
+          </div>
+        </div>
+        <div class="module__item">
+          <div class="module__title">Объект DATE</div>
+          <div class="module__text">
+            <div class="module__thought">
+              Объект Date позволяет работать с датами и временем с помощью
+              встроенных методов и констант
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module">
+        <p>as2as</p>
+      </div>
     </div>
     <script>
       const btnsNav = document.querySelectorAll(".nav__item");
+      const modules = document.querySelectorAll(".module");
       const nav = document.querySelector(".nav");
       nav.addEventListener("click", function (e) {
         if (!e.target.classList.contains("nav__item--active")) {
           for (let i = 0; i < btnsNav.length; i++) {
             btnsNav[i].classList.remove("nav__item--active");
+            modules[i].classList.remove("module--active");
           }
           e.target.classList.add("nav__item--active");
+          modules[[...nav.children].indexOf(e.target)].classList.add(
+            "module--active"
+          );
         }
       });
 
